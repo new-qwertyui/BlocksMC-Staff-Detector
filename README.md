@@ -21,7 +21,7 @@ private boolean isStaffInGame() {
 private List<String> getStaff() {
 	final List<String> staff = new ArrayList<>();
 	try {
-		HttpResponse res = httpsConnection("https://raw.githubusercontent.com/new-qwertyui/BlocksMC-Staff/refs/heads/main/List");
+		HttpResponse res = httpsConnection("https://raw.githubusercontent.com/new-qwertyui/BlocksMC-Staff-Detector/refs/heads/main/List");
 		if (res != null && res.getResponse() == HttpsURLConnection.HTTP_OK) {
 			Scanner scanner = new Scanner(res.getContent());
 			while (scanner.hasNextLine()) {
