@@ -11,10 +11,11 @@ private boolean isStaffInGame() {
 	for (EntityPlayer entity : mc.theWorld.playerEntities) {
 		for (String name : getStaff()) {
 			if (entity.getName().equalsIgnoreCase(name)) {
-				return true
+				return true;
 			}
 		}
 	}
+	return false;
 }
 
 private List<String> getStaff() {
