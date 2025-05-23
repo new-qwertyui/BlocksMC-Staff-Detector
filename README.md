@@ -40,11 +40,26 @@ private static HttpResponse httpsConnection(String url) {
 		HttpsURLConnection connection = (HttpsURLConnection) new URL(url).openConnection();
 		connection.setRequestProperty("User-Agent", "WeedhackPremium");
 		connection.connect();
-		return new HttpResponse(FileUtils.readInputStream(connection.getInputStream()), connection.getResponseCode());
+		return new HttpResponse(readInputStream(connection.getInputStream()), connection.getResponseCode());
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
 	return null;
+}
+
+public static String readInputStream(InputStream inputStream) {
+	StringBuilder stringBuilder = new StringBuilder();
+	
+	try {
+	    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+	    String line;
+	    while ((line = bufferedReader.readLine()) != null)
+		stringBuilder.append(line).append('\n');
+	
+	} catch (Exception e) {
+	    e.printStackTrace();
+	}
+	return stringBuilder.toString();
 }
 
 @Getter // lombok
